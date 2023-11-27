@@ -7,11 +7,30 @@
     <script>
         var skills = [] 
         function addSkill() {
-           skills.push()
+           var skill = document.getElementById("txtSkill").value 
+           skills.push(skill)
+           displaySkills()
+        }
+
+        function displaySkills() {
+           var output = ""
+
+           for(let s of skills)
+               output += `<li>${s}</li>`
+
+           document.getElementById("ulSkills").innerHTML = output;
         }
     </script>
 </head>
 <body>
+    <h1>Skills</h1>
+    Skill <input type="text" id="txtSkill" />
+    <p></p>
+    <button onclick="addSkill()">Add</button>
+
+    <ul id="ulSkills">
+
+    </ul>
     
 </body>
 </html>
