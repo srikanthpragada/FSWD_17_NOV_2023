@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No. Days</title>
+    <script>
+        function calculateDays() {
+            var fdate = new Date(document.getElementById("fd").value);
+            var sdate = new Date(document.getElementById("sd").value);
+
+            var ms = sdate.getTime() -  fdate.getTime() 
+            var ms_per_days = (24 * 60 * 60 * 1000)
+            var days = ms / ms_per_day
+            alert(days)
+        }
+    </script>
+</head>
+<body>
+    <h1>Days Calculation</h1>
+    First Date : <input type="date" id="fd" />
+    Second Date : <input type="date" id="sd" />
+    <p></p>
+    <button onclick="calculateDays()">Days</button>
+    
+</body>
+</html>
