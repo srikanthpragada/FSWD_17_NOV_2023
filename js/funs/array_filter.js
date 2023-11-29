@@ -4,10 +4,10 @@ function isOdd(n) {
     return n % 2 == 1
 }
 
-//odd_nums = a.filter(isOdd)
+odd_nums = a.filter(isOdd)
 
-odd_nums = a.filter( v => v % 2 === 1)
-
+// Using arrow function 
+odd_nums = a.filter(v => v % 2 === 1)
 console.log(odd_nums)
 
 // Using index with filter 
