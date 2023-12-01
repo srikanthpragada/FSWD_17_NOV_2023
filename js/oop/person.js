@@ -10,6 +10,7 @@ class Person {
     }
 }
 
+
 let p1 = new Person("Ellison", 60)   // Create an object 
 p1.age = 19
 p1.email = "ellison@oracle.com"
