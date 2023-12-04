@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+<body>
+    <button onclick="startTime()">Start</button>
+    <button onclick="pauseTime()" disabled="true">Pause</button>
+    <button onclick="resumeTime()" disabled="true">Resume</button>
+    <button onclick="clearTime()" disabled="true">Clear</button>
+    <h1 id="seconds">0</h1>
+
+    <script>
+        var secondsElement = document.getElementById("seconds")
+        var seconds = 0;
+        var paused = false;
+        var id;
+
+        function startTime() {
+            seconds = 0;
+            paused = false;
+            id = setInterval(updateSeconds, 1000);
+        }
+
+        function updateSeconds() {
+            if (!paused) {
+                seconds++;
+                secondsElement.innerHTML = seconds;
+            }
+        }
+
+        function pauseTime() {
+            paused = true;
+        }
+
+        function resumeTime() {
+            paused = false;
+        }
+
+        function clearTime() {
+            clearInterval(id);
+            secondsElement.innerHTML = "";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
