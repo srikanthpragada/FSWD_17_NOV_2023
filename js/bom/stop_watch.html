@@ -7,14 +7,18 @@
     <title>Stop Watch</title>
 </head>
 <body>
-    <button onclick="startTime()">Start</button>
-    <button onclick="pauseTime()" disabled="true">Pause</button>
-    <button onclick="resumeTime()" disabled="true">Resume</button>
-    <button onclick="clearTime()" disabled="true">Clear</button>
+    <button onclick="startTime()" id="btnStart">Start</button>
+    <button onclick="pauseTime()" id="btnPause" disabled="true">Pause</button>
+    <button onclick="resumeTime()"id="btnResume" disabled="true">Resume</button>
+    <button onclick="clearTime()" id="btnClear" disabled="true">Clear</button>
     <h1 id="seconds">0</h1>
 
     <script>
         var secondsElement = document.getElementById("seconds")
+        var btnPause = document.getElementById("btnPause");
+        var btnResume = document.getElementById("btnResume");
+        var btnClear = document.getElementById("btnClear");
+
         var seconds = 0;
         var paused = false;
         var id;
@@ -23,6 +27,9 @@
             seconds = 0;
             paused = false;
             id = setInterval(updateSeconds, 1000);
+            // enable buttons 
+            btnClear.disabled = false; 
+            btnPause.disabled = false; 
         }
 
         function updateSeconds() {
@@ -34,10 +41,15 @@
 
         function pauseTime() {
             paused = true;
+            btnPause.disabled = true;
+            btnResume.disabled = false;
+
         }
 
         function resumeTime() {
-            paused = false;
+            paused = false; 
+            btnPause.disabled = false;
+            btnResume.disabled = true;
         }
 
         function clearTime() {
