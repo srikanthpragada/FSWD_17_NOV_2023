@@ -2,15 +2,10 @@ create database nov17;
 
 use nov17;
 
-drop table employees;
-
-drop table departments; 
-
-
 create table departments
 ( dept_id  char(2) primary key,
   dept_name varchar(30) not null
- );
+);
 
 
 insert into departments values('it','Information Technology');
