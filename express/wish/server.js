@@ -7,14 +7,14 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello Express Web Freamwork!</h1>')
 })
 
-app.get('/wish',  // URL
+app.get('/wish',  // URL - /wish?name=Srikanth
   (req, res) => {
      var name = req.query.name ?? 'Guest'  // query parameter 
      res.send(`<h1>Hello ${name} </h1>`)
   }
 )
 
-app.get('/greet/:name',  // URL
+app.get('/greet/:name',  // URL - /greet/srikanth
   (req, res) => {
      var name = req.params.name  // route parameter 
      res.send(`<h1>Hello ${name} </h1>`)
