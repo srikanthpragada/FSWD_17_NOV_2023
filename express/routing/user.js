@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.end("User Root Handler")
 });
+
+router.get('/list', function(req, res, next) {
+  res.end("Users List Handler")
+});
+
 
 module.exports = router;
