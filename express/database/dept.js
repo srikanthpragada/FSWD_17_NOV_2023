@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/depts', (req, res) => {
+app.get('/list', (req, res) => {
   var query = con.query("select * from departments",
     function (err, departments) {
       if (err) throw err;
-     
+
       res.render('listdept', { departments: departments })
     }
   );
@@ -32,13 +32,30 @@ app.get('/add', (req, res) => {
 
 app.post('/add', (req, res) => {
   var query = con.query("insert into departments values(?,?)",
-                          [req.body.deptid, req.body.deptname],
+    [req.body.deptid, req.body.deptname],
     function (err, result) {
       if (err) {
-          res.send(`<h2>Sorry!! Could not add department.</h2><h3>Error :  ${err.message} </h3>`)
+        res.send(`<h2>Sorry!! Could not add department.</h2><h3>Error :  ${err.message} </h3>`)
       }
       else
-         res.send(`<h1>Added Department ${req.body.deptname} Successfully!!`)
+        res.send(`<h1>Added Department ${req.body.deptname} Successfully!!`)
+    }
+  );
+})
+
+app.get('/delete', (req, res) => {
+  var query = con.query(
+    "delete from departments where dept_id = ?",
+    [req.query.id],
+    function (err, result) {
+      //console.log(result)
+      if (err) throw err;
+
+      if (result.affectedRows > 0) {
+        res.redirect("/list")
+      }
+      else
+        res.end('<h1>Sorry! Department Id Not Found!</h1>')
     }
   );
 })
