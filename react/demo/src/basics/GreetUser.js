@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Greet() {
+export default function GreetUser(props) {
+  console.log(props)
   var ct = new Date() 
   var hours = ct.getHours()
   let msg = "Good Evening"
@@ -13,6 +14,6 @@ export default function Greet() {
   
 
   return (
-    <h1>{msg}</h1>
+    <h1>{msg} {props.name}</h1>
   )
 }

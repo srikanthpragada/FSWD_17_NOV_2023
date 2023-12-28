@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Greet from './basics/Greet';
-import Greetings from './basics/GreetCC';
+import CourseCC from './props/CourseCC';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Greet />
-    <Greetings />
+    <CourseCC title="Python" fee={10000} />
   </React.StrictMode>
 );
 
