@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import CourseCC from './props/CourseCC';
+import BooksCatalog from './parent-child/BooksCatalog';
 
+var books = 
+[
+   {title : 'The Outliers', price: 550}, 
+   {title : 'World is flat', price: 650}, 
+   {title : 'No rules rules', price: 400} 
+]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CourseCC title="Python" fee={10000} />
+      <BooksCatalog books={books} />
   </React.StrictMode>
 );
 
