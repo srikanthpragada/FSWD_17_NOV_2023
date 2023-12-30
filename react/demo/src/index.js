@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import BooksCatalog from './parent-child/BooksCatalog';
+import TechSkills from './state/TechSkills';
 
-var books = 
-[
-   {title : 'The Outliers', price: 550}, 
-   {title : 'World is flat', price: 650}, 
-   {title : 'No rules rules', price: 400} 
-]
+// var books = 
+// [
+//    {title : 'The Outliers', price: 550}, 
+//    {title : 'World is flat', price: 650}, 
+//    {title : 'No rules rules', price: 400} 
+// ]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <BooksCatalog books={books} />
+      <TechSkills />
   </React.StrictMode>
 );
 
