@@ -1,21 +1,33 @@
 import React, { useState } from 'react'
 
-function AddSkill() {
+function AddSkill( {addNewSkill} ) {
     function addSkill() {
-
+         var skill = document.getElementById("txtSkill").value 
+         var result = addNewSkill(skill)  // Invoke function in parent comp
+         if(!result)
+            document.getElementById("msg").innerText = "Duplicate Skill!";
+         else
+            document.getElementById("msg").innerText = "";
     }
     return (
         <>
            <h3>Add Skill</h3>
             Skill :
-            <input type="text" id="txtSkill" />
+            <input type="text" id="txtSkill" /> 
+            <span id="msg"></span>
             <p></p>
             <button onClick={addSkill}>Add</button>
         </>
     )
 }
 
-function ListSkills({skills}){
+function ListSkills({skills , deleteSkill}){
+    function deleteCurrentSkill(skill) {
+       if(!window.confirm('Do you want to delete?'))
+          return;
+          
+       deleteSkill(skill) // Call function of parent 
+    }
     return (
         <>
           <h3>Skills</h3>
@@ -25,7 +37,7 @@ function ListSkills({skills}){
                         <li key={skill}>
                             {skill}
                             &nbsp;
-                            <button>Del</button>
+                            <button onClick={ () => deleteCurrentSkill(skill)}>Del</button>
                         </li>)
                 }
             </ul>
@@ -36,24 +48,35 @@ function ListSkills({skills}){
 export default function TechSkills() {
     var [skills, setSkills] = useState([])
 
-    // function addSkill() {
-    //     let skill = document.getElementById("txtSkill").value
-    //     setSkills([...skills, skill])
-    // }
+    // Return true if added successfully otherwise false 
+    function addSkill(skill) {
+       if(skills.includes(skill) )  // skill is already existing 
+         return false;
 
-    // function deleteSkill(skillToDelete) {
-    //     // take all skills except the one to delete 
-    //     var skillsToRetain = skills.filter((skill) => skill !== skillToDelete)
-    //     setSkills([...skillsToRetain])
-    // }
+       setSkills([...skills, skill])
+       return true; 
+    }
+
+    function deleteSkill(skillToDelete) {
+        // take all skills except the one to delete 
+        var skillsToRetain = skills.filter((skill) => skill !== skillToDelete)
+        setSkills([...skillsToRetain])
+    }
 
     return (
         <>
-         <AddSkill />
+         <AddSkill addNewSkill={addSkill} />
          <p></p>
          <hr/>
          <p></p>
-         <ListSkills skills={skills} />
+
+         {/* Conditional rendering */}
+         {/* skills.length > 0 && 
+                   <ListSkills skills={skills} deleteSkill={deleteSkill} /> */}
+
+         { skills.length > 0 ? 
+              <ListSkills skills={skills} deleteSkill={deleteSkill} /> :
+              <h4>Sorry! No skills yet!</h4>}                   
         </>
     )
 }

@@ -13,7 +13,7 @@ import TechSkills from './state/TechSkills';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <TechSkills />
+      <TechSkills  />
   </React.StrictMode>
 );
 
