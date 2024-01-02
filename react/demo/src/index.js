@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import TechSkills from './state/TechSkills';
+import Passengers from './state/Passengers';
 
 // var books = 
 // [
@@ -13,7 +13,7 @@ import TechSkills from './state/TechSkills';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <TechSkills  />
+      <Passengers />
   </React.StrictMode>
 );
 
