@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Passengers from './state/Passengers';
+import JQueryDemo from './ajax/JQueryDemo';
 
 // var books = 
 // [
@@ -13,7 +13,7 @@ import Passengers from './state/Passengers';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Passengers />
+       <JQueryDemo  />
   </React.StrictMode>
 );
 
