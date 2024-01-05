@@ -32,6 +32,11 @@ export default function Countries() {
         return Array.from(regionNames) 
     }
 
+    function countriesByRegion(e) {
+        console.log(e.target.value)
+        // select all countries in the selected region 
+        
+    }
     
     function updateCountryName(e) {
         var cname = e.target.value.toLowerCase()
@@ -44,13 +49,15 @@ export default function Countries() {
         <div>
             <h1>Find Country Information</h1>
             Regions :
-            <select>
+            <select onChange={countriesByRegion}>
                  {
-                    regions.map((v,idx) => <option value={v}>{v}</option>)
+                    regions.map((v,idx) => 
+                         <option value={v}>{v}</option>)
                  }
             </select>
             <p></p>
-            Country Name: <input type="text" value={countryName} 
+            Country Name:
+             <input type="text" value={countryName} 
                 onChange={updateCountryName} />
             <p></p>
 
@@ -79,7 +86,7 @@ export default function Countries() {
                                                 </td>
                                                 <td>
                                                     <img style={{ width: '100px', height: '50px' }}
-                                                        src={country.flags.png} alt={country.name} />
+                                                        title={country.name.common}  src={country.flags.png} alt={country.name} />
                                                 </td>
                                             </tr>
                                         );

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import JQueryDemo from './ajax/JQueryDemo';
+import DigitalClock from './state/DigitalClock';
 
 // var books = 
 // [
@@ -13,7 +13,7 @@ import JQueryDemo from './ajax/JQueryDemo';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-       <JQueryDemo  />
+       <DigitalClock />
   </React.StrictMode>
 );
 

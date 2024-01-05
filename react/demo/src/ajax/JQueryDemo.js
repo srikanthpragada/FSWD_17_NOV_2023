@@ -6,15 +6,16 @@ export default function JQueryDemo() {
 
     function getDateTime() {
         var timezone = document.getElementById("txtTimezone").value
-        $.getJSON('http://worldtimeapi.org/api/timezone/' + timezone,
-            (data) => {
-                console.log(data)
-                if (data.error) {
-                    alert("Error:" + data.error)
+        $.ajax(
+           'http://worldtimeapi.org/api/timezone/' + timezone,
+           {
+             success:(data) =>  setNow(data.datetime),
+             error: 
+                () =>{ 
+                    setNow(''); // clear output 
+                    alert("Sorry! Invalid Timezone!")
                 }
-                else
-                    setNow(data.datetime)
-            }
+           }
         )
     }
 
