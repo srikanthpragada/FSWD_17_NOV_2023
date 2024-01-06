@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import DigitalClock from './state/DigitalClock';
+import Main from './routing/Main';
 
 // var books = 
 // [
@@ -13,7 +13,7 @@ import DigitalClock from './state/DigitalClock';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-       <DigitalClock />
+       <Main />
   </React.StrictMode>
 );
 
