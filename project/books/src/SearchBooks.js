@@ -8,7 +8,7 @@ export default function SearchBooks() {
     const [done, setDone] = useState(false)
 
     function searchBooks() {
-        $.get(SERVER_URL + `/books/search?title=${searchText}`,
+        $.get( SERVER_URL + `/books/search?title=${searchText}`,
             (result) => {
                 setSelectedBooks(result)
                 setDone(true)
@@ -23,7 +23,8 @@ export default function SearchBooks() {
     return (
         <>
             <h3>Search Books</h3>
-            Title <input type="text" value={searchText} onChange={changeValue} />
+            Title <input type="text" value={searchText} 
+                     onChange={changeValue} />
             <button onClick={searchBooks}>Search</button>
             <p></p>
 

@@ -7,7 +7,7 @@ var pool = mysql.createPool({
     password: "mysql",
     database: "nov17"
 });
- 
+
 async function getBooks() {
     var [rows, fields] = await pool.query("select * from books")
     return rows;
@@ -28,7 +28,7 @@ async function getBookById(id) {
 
 async function searchBooks(title) {
     var [rows, fields] = await pool.query("select * from books where upper(title) like ?",
-                                         [`%${title.toUpperCase()}%`])
+        [`%${title.toUpperCase()}%`])
     return rows;
 }
 
@@ -38,21 +38,23 @@ async function addBook(title, author, price) {
 }
 
 async function updateBook(id, book) {
-    let [result, fields] =  await pool.query("update books set title = ?, author = ?, price = ? where id = ?", [book.title, book.author, book.price, id])
+    let [result, fields] = await pool.query("update books set title = ?, author = ?, price = ? where id = ?", [book.title, book.author, book.price, id])
     console.log(result)
     if (result.affectedRows === 1)
         return true
     else
-        return false 
+        return false
 }
 
 async function deleteBook(id) {
+
     let result = await pool.execute("delete from books where id = ?", [id])
     console.log(result)
     if (result[0].affectedRows == 1)
         return true;
     else
-        return false; 
+        return false;
+
 }
 
 

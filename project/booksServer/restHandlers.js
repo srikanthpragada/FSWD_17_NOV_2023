@@ -35,10 +35,10 @@ async function getBookById(req,res) {
   }
 }
 
+// Querystring - title 
 async function searchBooks(req, res) {
   try {
     let books = await db.searchBooks(req.query.title)
-    console.log(books)
     res.json(books);
   }
   catch (err) {

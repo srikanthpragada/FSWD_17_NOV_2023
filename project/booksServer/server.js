@@ -14,10 +14,12 @@ app.use(cors())
 
 
 app.get('/books', handlers.getBooks) 
-app.get('/books/:id', handlers.getBookById)
+app.get("/books/search", handlers.searchBooks)
 app.get('/books/author', handlers.getBooksByAuthor)
 app.get('/authors', handlers.getAuthorsBooksCount)
-app.get("/books/search", handlers.searchBooks)
+
+app.get('/books/:id', handlers.getBookById)
+
 
 
 app.post('/books', handlers.addBook)
