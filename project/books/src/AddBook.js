@@ -51,7 +51,9 @@ export default function AddBook() {
       <form onSubmit={addBook}>
         <div className="form-group">
           <label for="txtTitle">Title </label>
-          <input className="form-control" type="text" value={book.title} id="txtTitle" required onChange={changeValue} name="title" />
+          <input className="form-control" type="text"
+           value={book.title} id="txtTitle" required 
+           onChange={changeValue} name="title" />
         </div>
 
         <div className="form-group">

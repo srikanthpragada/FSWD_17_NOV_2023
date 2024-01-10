@@ -12,12 +12,13 @@ export default function AddBookFetch() {
     event.preventDefault()
 
     // make ajax request for post 
-    let response = await fetch(BOOKS_URL, {
-      method: 'post',
-      body: JSON.stringify(book),
-      headers: {
-        "Content-Type": "application/json"
-      }
+    let response = await fetch(BOOKS_URL, 
+      {
+       method: 'post',
+       body: JSON.stringify(book),
+       headers: {
+          "Content-Type": "application/json"
+       }
     })
 
     if (response.ok) 

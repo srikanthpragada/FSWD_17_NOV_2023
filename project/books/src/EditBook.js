@@ -32,17 +32,17 @@ export default function EditBook() {
     function updateBook(event) {
         event.preventDefault()
 
-        // make ajax request for post 
+        // make ajax request for put 
         $.ajax(
             {
                 url:`${BOOKS_URL}/${bookId}`,
                 method: 'put',
-                data: book,
+                data: JSON.stringify(book),
+                contentType: 'application/json; charset=utf-8',
                 success: function () {
                     alert("Book updated successfully!")
                 },
                 error: function (error) {
-                    console.log(error)
                     alert("Sorry! Could not update book! Please try again!")
                 }
             }

@@ -1,7 +1,5 @@
 export const BOOKS_URL = "http://localhost:8888/books"
-export const SEARCH_BOOKS_URL = "http://localhost:8888/books"
-//export const SERVER_URL = "/"
+export const AUTHOR_URL = "http://localhost:8888/authors"
 
-export const SERVER_URL = "http://localhost:8888"
 
  
